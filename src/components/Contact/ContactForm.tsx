@@ -54,6 +54,13 @@ export default function ContactForm() {
                     </p>
 
                     <div className="flex flex-col gap-6">
+                        <a href="tel:+919226066639" className="flex items-center gap-4 text-white hover:text-accent-cyan transition-colors group">
+                            <div className="w-12 h-12 rounded-full glass flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <span className="text-xl">📞</span>
+                            </div>
+                            <span className="text-lg">+91 9226066639</span>
+                        </a>
+
                         <a href="mailto:yashyelave18@gmail.com" className="flex items-center gap-4 text-white hover:text-accent-cyan transition-colors group">
                             <div className="w-12 h-12 rounded-full glass flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <Mail size={20} />
