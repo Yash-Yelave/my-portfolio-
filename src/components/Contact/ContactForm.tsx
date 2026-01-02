@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import confetti from "canvas-confetti";
-import { Mail, Github, Linkedin, Twitter, Send } from "lucide-react";
+import { Mail, Github, Linkedin, Instagram, Send } from "lucide-react";
 
 export default function ContactForm() {
     const [formState, setFormState] = useState({ name: "", email: "", message: "" });
@@ -54,16 +54,20 @@ export default function ContactForm() {
                     </p>
 
                     <div className="flex flex-col gap-6">
-                        <a href="mailto:contact@yashyelave.com" className="flex items-center gap-4 text-white hover:text-accent-cyan transition-colors group">
+                        <a href="mailto:yashyelave18@gmail.com" className="flex items-center gap-4 text-white hover:text-accent-cyan transition-colors group">
                             <div className="w-12 h-12 rounded-full glass flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <Mail size={20} />
                             </div>
-                            <span className="text-lg">contact@yashyelave.com</span>
+                            <span className="text-lg">yashyelave18@gmail.com</span>
                         </a>
 
                         <div className="flex gap-4 mt-4">
-                            {[Github, Linkedin, Twitter].map((Icon, i) => (
-                                <a key={i} href="#" className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 hover:scale-110 transition-all text-white">
+                            {[
+                                { Icon: Github, href: "https://github.com/Yash-Yelave" },
+                                { Icon: Linkedin, href: "https://www.linkedin.com/in/yashyelave/" },
+                                { Icon: Instagram, href: "https://www.instagram.com/yash.creation_log/" }
+                            ].map(({ Icon, href }, i) => (
+                                <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 hover:scale-110 transition-all text-white">
                                     <Icon size={20} />
                                 </a>
                             ))}
@@ -119,8 +123,8 @@ export default function ContactForm() {
                         <button
                             disabled={isSubmitting || isSuccess}
                             className={`w-full py-5 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 shadow-lg ${isSuccess
-                                    ? "bg-accent-neon text-bg-primary hover:bg-accent-neon/90"
-                                    : "bg-gradient-to-r from-accent-cyan to-accent-neon text-bg-primary hover:opacity-90 hover:shadow-[0_0_30px_rgba(0,217,255,0.4)] hover:-translate-y-1"
+                                ? "bg-accent-neon text-bg-primary hover:bg-accent-neon/90"
+                                : "bg-gradient-to-r from-accent-cyan to-accent-neon text-bg-primary hover:opacity-90 hover:shadow-[0_0_30px_rgba(0,217,255,0.4)] hover:-translate-y-1"
                                 }`}
                         >
                             {isSubmitting ? (
