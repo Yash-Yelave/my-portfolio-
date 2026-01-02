@@ -82,16 +82,19 @@ function Galaxy() {
     return (
         <points ref={ref}>
             <bufferGeometry>
+                {/* @ts-ignore */}
                 <bufferAttribute
                     attach="attributes-position"
                     count={points.positions.length / 3}
                     args={[points.positions, 3]}
                 />
+                {/* @ts-ignore */}
                 <bufferAttribute
                     attach="attributes-color"
                     count={points.colors.length / 3}
                     args={[points.colors, 3]}
                 />
+                {/* @ts-ignore */}
                 <bufferAttribute
                     attach="attributes-aRandom"
                     count={points.randoms.length}
