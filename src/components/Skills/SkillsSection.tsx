@@ -5,22 +5,46 @@ import { useRef } from "react";
 import {
     Code2,
     Brain,
-    Database,
+    Rocket,
     Terminal,
-    Cpu,
-    Layers,
-    Globe,
+    Gamepad2,
+    Laptop,
+    Users,
     Palette
 } from "lucide-react";
 
 // Skill Data
 const skills = [
-    { name: "Languages", icon: <Globe size={32} />, items: ["TypeScript", "Python", "C++", "Java"] },
-    { name: "Frontend", icon: <Layers size={32} />, items: ["Next.js", "React", "Three.js", "Tailwind (Expert)"] },
-    { name: "AI / ML", icon: <Brain size={32} />, items: ["TensorFlow", "PyTorch", "OpenCV", "Scikit-learn"] },
-    { name: "Backend", icon: <Database size={32} />, items: ["Node.js", "FastAPI", "PostgreSQL", "MongoDB"] },
-    { name: "Tools", icon: <Terminal size={32} />, items: ["Docker", "Git", "AWS", "Linux"] },
-    { name: "Design", icon: <Palette size={32} />, items: ["Figma", "Blender", "Adobe CC", "UI/UX"] },
+    {
+        name: "AI/ML & Vision",
+        icon: <Brain size={32} />,
+        items: ["YOLOv8", "OpenCV", "TensorFlow", "PyTorch", "Face Recognition", "LangChain", "NLP"]
+    },
+    {
+        name: "Full-Stack Web",
+        icon: <Laptop size={32} />,
+        items: ["Next.js", "React", "Node.js", "Flask", "Tailwind CSS", "Firebase", "Google Cloud"]
+    },
+    {
+        name: "Game Dev & 3D",
+        icon: <Gamepad2 size={32} />,
+        items: ["Unreal Engine 5", "C++", "Blueprints", "Blender", "Chaos Physics", "Lumen/Nanite"]
+    },
+    {
+        name: "Design & UI/UX",
+        icon: <Palette size={32} />,
+        items: ["Figma", "Photoshop", "Illustrator", "Brand Identity", "Wireframing", "After Effects"]
+    },
+    {
+        name: "Core Systems",
+        icon: <Terminal size={32} />,
+        items: ["Python (Expert)", "Java (Advanced)", "C/C++", "Data Structures", "Algorithms", "Git"]
+    },
+    {
+        name: "Leadership",
+        icon: <Users size={32} />,
+        items: ["Team Management", "Mentorship", "Project Planning", "Public Speaking", "Event Org"]
+    },
 ];
 
 function SkillCard({ skill, index }: { skill: any; index: number }) {

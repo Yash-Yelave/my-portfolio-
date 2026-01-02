@@ -2,40 +2,33 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Briefcase, GraduationCap } from "lucide-react";
+import { Briefcase, GraduationCap, Users } from "lucide-react";
 
+// Restored missing variable declaration
 const experiences = [
     {
         id: 1,
-        role: "AI/ML Engineer",
-        company: "Tech Innovations Inc.",
+        role: "Graphics Designer",
+        company: "SPWEBDEVS",
         period: "2024 - Present",
-        desc: "Developing advanced computer vision models for autonomous systems. Optimizing inference pipelines for edge devices.",
+        desc: "Developed comprehensive visual identity systems and created 50+ reusable digital assets, reducing creation time by 60%. Collaborated with dev teams on responsive design implementation.",
         type: "work",
     },
     {
         id: 2,
-        role: "Graphics Designer Intern",
-        company: "Creative Studio",
-        period: "2023 - 2024",
-        desc: "Designed UI/UX for mobile applications and marketing assets. Bridged the gap between design and frontend implementation.",
-        type: "internship",
+        role: "Founder & Managing Head",
+        company: "SANIN Club",
+        period: "2022 - 2024",
+        desc: "Founded and established club with 80+ active members. Organized 15+ technical events and pioneered a peer-to-peer mentorship program enhancing skills of 100+ students.",
+        type: "leadership",
     },
     {
         id: 3,
-        role: "Full Stack Developer",
-        company: "Freelance",
-        period: "2022 - 2023",
-        desc: "Built custom web applications using Next.js and Node.js. Delivered robust e-commerce solutions and portfolio sites.",
-        type: "freelance",
-    },
-    {
-        id: 4,
-        role: "Computer Science Degree",
-        company: "University of Technology",
-        period: "2020 - 2024",
-        desc: "Specialized in Artificial Intelligence and Data Science. Graduated with honors.",
-        type: "education",
+        role: "Media Head",
+        company: "CESA Club",
+        period: "2023 - 2024",
+        desc: "Led media team creating 100+ visual assets. Increased social media engagement by 150% through strategic content creation and comprehensive event coverage.",
+        type: "leadership",
     },
 ];
 
@@ -79,9 +72,10 @@ export default function ExperienceSection() {
                                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
                                 className={`w-full md:w-5/12 text-center md:text-${index % 2 === 0 ? 'right' : 'left'}`}
                             >
-                                <span className="text-8xl font-bold text-white/5 absolute -z-10 select-none scale-150 translate-y-4">{exp.period.split(' ')[0]}</span>
+                                <span className="text-8xl font-bold text-white/10 absolute -z-10 select-none scale-150 translate-y-4 transition-opacity duration-1000">{exp.period.split(' ')[0]}</span>
                                 <div className="text-accent-cyan font-mono mb-2 text-lg font-bold">{exp.period}</div>
                                 <h3 className="text-3xl font-bold text-white mb-2">{exp.role}</h3>
                                 <div className="text-xl text-text-muted font-medium">{exp.company}</div>
@@ -89,7 +83,11 @@ export default function ExperienceSection() {
 
                             {/* Timeline Node */}
                             <div className="relative z-10 w-16 h-16 rounded-full glass flex items-center justify-center border-2 border-accent-cyan box-content shadow-[0_0_20px_rgba(0,217,255,0.2)] bg-bg-primary">
-                                {exp.type === 'education' ? <GraduationCap size={28} className="text-accent-neon" /> : <Briefcase size={28} className="text-accent-cyan" />}
+                                {exp.type === 'work' ? (
+                                    <Briefcase size={28} className="text-accent-cyan" />
+                                ) : (
+                                    <Users size={28} className="text-accent-neon" />
+                                )}
                                 <div className="absolute inset-0 bg-accent-cyan rounded-full animate-ping opacity-20" />
                             </div>
 
