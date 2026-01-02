@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-bg-primary: #0A0E27;
+  --color-bg-secondary: #151932;
+  --color-accent-cyan: #00D9FF;
+  --color-accent-neon: #00FF94;
+  --color-text-main: #E6EDF3;
+  --color-text-muted: #8B949E;
+  --color-glass-bg: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Fonts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Animations */
+  --animate-scroll: scroll 2s ease-in-out infinite;
+  --animate-morph: morph 8s ease-in-out infinite;
+
+  /* Keyframes */
+  @keyframes scroll {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(10px);
+    }
+  }
+
+  @keyframes morph {
+
+    0%,
+    100% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    50% {
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+  }
+}
+
+:root {
+  /* Keeping these if needed for raw JS access, but Tailwind v4 consumes the --color-* directly */
+  --bg-primary: #0A0E27;
+  --bg-secondary: #151932;
+  --accent-cyan: #00D9FF;
+  --accent-neon: #00FF94;
+  --text-main: #E6EDF3;
+  --text-muted: #8B949E;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+}
+
+/* Utilities */
+.glass {
+  background-color: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+}
+
+/* Manual utility classes using apply (v4 compatible) */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--color-accent-cyan), var(--color-accent-neon));
+}
+
+.glitch-effect {
+  position: relative;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
